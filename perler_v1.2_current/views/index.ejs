@@ -1,0 +1,7 @@
+<% posts.forEach(function(post){ %>
+    <h3><%= post.name %></h3>
+    <a href="/posts/<%= post._id %>"> 
+        <img src="<%= post.image %>">
+    </a>
+    <p><%= post.description %></p>
+<% }); %>

@@ -1,0 +1,5 @@
+<% for(var i=0; i<posts.length; i++){ %>
+    <h3><%= posts[i]["name"] %></h3>
+    <a href="/<%= posts._id %>"><img src="<%= posts[i]["image"] %>"></a> 
+    <p><%= posts[i]["description"] %></p>
+<% } %>

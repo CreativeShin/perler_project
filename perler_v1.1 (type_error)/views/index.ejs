@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html> 
+    <head>
+    </head>
+    <body>
+         <nav>
+             <ul>
+                 <li><a href="/home">Home</a></li>
+                 <li><a href="/contact">Contact</a></li>
+                 <li><a href="/about">About</a></li>
+                 <li><a href="/admin">Admin</a></li>
+             </ul>
+         </nav>
+         <header>
+             <h1>Perler</h1>
+         </header>
+         <section>
+             <h2>Gallery</h2>
+             <% posts.forEach(function(post){ %>
+             <div>
+                 <h3><%= post.name %></h3>
+                 <a href="/<%= post._id %>"><img src = "<%= post.image %>" alt= "<%= post.name %>" ></a>
+                 <p><%= post.description %></p>
+             </div>
+             <% }); %>
+         </section>
+    </body>
+</html>

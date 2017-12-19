@@ -1,8 +1,18 @@
-<a href="/new">Create Post</a>
-<% posts.forEach(function(post){ %>
-    <h3><%= post.name %></h3>
-    <a href="/posts/<%= post._id %>"> 
-        <img src="<%= post.image %>">
-    </a>
-    <p><%= post.description %></p>
-<% }); %>
+<% include partials/header %>
+
+<div class="container">
+    <a href="/new" class="btn btn-default">Create Post</a>
+    <div class="row">
+            <% posts.forEach(function(post){ %>
+                <div class="col-sm-4">
+                    <h3><%= post.name %></h3>
+                    <a href="/posts/<%= post._id %>"> 
+                        <img  class="postImage" src="<%= post.image %>">
+                    </a>
+                    <p class="shortDesc"><%= post.description %></p>
+                </div>
+            <% }); %>
+        
+</div>
+
+<% include partials/footer %>

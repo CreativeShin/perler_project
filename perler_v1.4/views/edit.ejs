@@ -1,16 +1,20 @@
-<h1>Update Post</h1>
-
-<form action= "/posts/<%= post._id %>" method="POST">
-    <div>
-        <input type="text" placeholder="Perler" name="name" value = "<%= post.name %>" required>
-    </div>
+<% include partials/header %>
+<div class="container">
+    <h1>Update Post</h1>
     
-    <div>
-        <input type = "text" placeholder="https://placekitten.com" name="image" value = "<%= post.image %>" required>
-    </div>
-    
-    <div>
-        <textarea name="description"><%= post.description %></textarea>
-    </div>
-    <button type="submit">Submit</button>
-</form>
+    <form action= "/posts/<%= post._id %>" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Perler" name="name" value = "<%= post.name %>" required>
+        </div>
+        
+        <div class="form-group">
+            <input class="form-control" type = "text" placeholder="https://placekitten.com" name="image" value = "<%= post.image %>" required>
+        </div>
+        
+        <div class="form-group">
+            <textarea class="form-control" name="description"><%= post.description %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<% include partials/footer %>

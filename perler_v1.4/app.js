@@ -10,6 +10,7 @@ mongoose.connect("mongodb://localhost/perler_v12", {
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 // Models
 var Post = require('./models/post.js');

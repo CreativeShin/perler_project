@@ -1,0 +1,23 @@
+<% include partials/header %>
+ <div class="hero">
+        <h1 id="mainText">Gallery</h1>
+    </div>
+<div class="container">
+   
+    <div class="row">
+            <% posts.forEach(function(post){ %>
+                <div class="col-sm-4">
+                    <h3 class="display-4 galleryHeading"><%= post.name %></h3>
+                    <div class="cardHover">
+                        <a href="/posts/<%= post._id %>"> 
+                            <img  class="postImage" src="<%= post.image %>">
+                        </a>
+                        <p class="shortDesc"><%= post.description %></p>
+                    </div>
+                </div>
+            <% }); %>
+        
+</div>
+</div>
+
+<% include partials/footer %>

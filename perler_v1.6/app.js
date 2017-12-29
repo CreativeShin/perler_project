@@ -10,7 +10,7 @@ var app = express();
 var Post = require('./models/post.js');
 var User = require('./models/user.js');
 
-
+mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/perler_v16", {
    useMongoClient:true
 });
@@ -50,7 +50,8 @@ app.get('/posts', function(req, res){
         console.log(error);
      }else{
          res.render('index', {
-         posts: foundPosts
+         posts: foundPosts,
+         admin: req.user
       });
      }
    });
@@ -59,7 +60,7 @@ app.get('/posts', function(req, res){
 // New Post
 
 app.get('/new',isLoggedIn, function(req, res){
-   res.render('new');
+   res.render('new',{admin: req.user});
 });
 
 // Create Route
@@ -109,7 +110,8 @@ app.get('/posts/:id/edit',isLoggedIn, function(req, res){
          console.log(error);
       }else{
          res.render('edit',{
-            post:foundPost 
+            post:foundPost, 
+            admin: req.user
    });
       }
    });
@@ -153,23 +155,17 @@ app.post('/posts/:id/delete',isLoggedIn, function(req, res){
 
 // PASSPORT
 
-app.get('/admin', function(req, res){
-   res.render('admin');
+app.get('/about', function(req, res){
+   res.render('about',{admin: req.user});
 });
 
-app.get('/about', function(req, res){
-   res.render('about');
-});
-app.get('/contact', function(req, res){
-   res.render('contact');
-});
 
 app.get('/register', function(req, res){
-   res.render('register');
+   res.render('register',{admin: req.user});
 });
 
 app.get('/login', function(req, res){
-   res.render('login');
+   res.render('login',{admin: req.user});
 });
 
 

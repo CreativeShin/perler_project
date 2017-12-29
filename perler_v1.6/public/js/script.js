@@ -6,4 +6,8 @@ for(var i =0; i < shortDesc.length; i++){
         shortDesc[i].textContent = text.slice(0,78) + "...";
     }
 }
+
+
+
+
 // console.log(shortDesc);

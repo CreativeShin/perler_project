@@ -11,7 +11,7 @@ var Post = require('./models/post.js');
 var User = require('./models/user.js');
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/perler_v16", {
+mongoose.connect("mongodb://kayden:rusty@ds133627.mlab.com:33627/perler", {
    useMongoClient:true
 });
 
@@ -160,25 +160,25 @@ app.get('/about', function(req, res){
 });
 
 
-app.get('/register', function(req, res){
-   res.render('register',{admin: req.user});
-});
+// app.get('/register', function(req, res){
+//    res.render('register',{admin: req.user});
+// });
 
 app.get('/login', function(req, res){
    res.render('login',{admin: req.user});
 });
 
 
-app.post('/register', function(req, res){
-   User.register(new User({username: req.body.username}), req.body.password, function(error, user){
-      if(error){
-         return res.render('register');
-      }
-      passport.authenticate('local')(req, res, function(){
-         res.redirect('/new');
-      });
-   });
-});
+// app.post('/register', function(req, res){
+//    User.register(new User({username: req.body.username}), req.body.password, function(error, user){
+//       if(error){
+//          return res.render('register');
+//       }
+//       passport.authenticate('local')(req, res, function(){
+//          res.redirect('/new');
+//       });
+//    });
+// });
 
 app.post('/login',passport.authenticate('local',{
    successRedirect: '/new',
